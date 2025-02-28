@@ -10,7 +10,7 @@
     font-family: 'Nunito',sans-serif;
 }
 html{
-   font-size: 62.5%;
+   font-size: 100%;
 }
 :root{
     --white: #FFF5EE;
@@ -73,9 +73,10 @@ header h2{
     flex-wrap: wrap;
 }
 .about .image-about img{
-    width: 40rem;
+    width: 30rem;
     border: 0.2rem green solid;
     border-radius: 2rem;
+    flex-basis: 50%;
 }
 .about .content-about{
     font-size:var(--font-3);
@@ -111,7 +112,7 @@ header h2{
     justify-items: center;
     border-radius: 2rem;
     border: 0.2rem white solid;
-    width: clamp(180px, 22%, 500px);
+    width: clamp(100px, 20%, 300px);
 }
 
 /*order*/
@@ -171,7 +172,7 @@ header h2{
     border: 0.2rem green solid;
     border-radius: 1rem;
     margin: 1rem;
-    width: clamp(30rem, 30%, 40%);
+    width: clamp(20rem, 25%, 30%);
     height:20rem;
     display: flex;
     flex-wrap: wrap;
