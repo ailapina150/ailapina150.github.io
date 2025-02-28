@@ -88,7 +88,6 @@ header h2{
 .about .content-about{
     font-size:var(--font-3);
     margin-left: 5rem;
-    flex-basis: 50%;
 }
 .about .content-about h3 a:hover{
     color: var(--color-hover);
