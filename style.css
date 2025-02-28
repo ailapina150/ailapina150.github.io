@@ -82,6 +82,9 @@ header h2{
     margin-left: 5rem;
     flex-basis: 50%;
 }
+.about .content-about h3 a:hover{
+    color: var(--color-hover);
+}
 /*assortment*/
 .assortment {
     display: flex;
