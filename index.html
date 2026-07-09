@@ -1,147 +1,968 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Купить тюльпаны Брест, доставка цветов Брест, тюльпаны с доставкой Брест, свежие тюльпаны Брест">
-    <meta
-            name="keywords"
-            content="тюльпаны, тюльпаны с достакой, Брест, доставка цветов в Бресте"
-    >
-    <meta
-            name="keywords"
-            content="ailapina150.github.io, ailapina150.github"
-    >
-    <link rel="shortcut icon" href="/tulip.png" type="image/x-icon">
-    <title>Тюльпаты Доставка Брест</title>
-    <link rel = "stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Анна Лапина | Разработчик</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4fc;
+            color: #1a2533;
+            line-height: 1.6;
+        }
+        
+        ::selection {
+            background: #1a5276;
+            color: #fff;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(26, 82, 118, 0.08);
+            padding: 14px 0;
+            transition: box-shadow 0.3s;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 4px 30px rgba(26, 82, 118, 0.08);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1a5276;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            font-weight: 300;
+            color: #5a7d9a;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .nav-links a {
+            color: #3a5a7a;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a5276;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #1a5276;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            font-size: 26px;
+            background: none;
+            border: none;
+            color: #1a5276;
+            cursor: pointer;
+        }
+        
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #f0f4fc 0%, #dce6f2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(26, 82, 118, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #0e2a3f;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        
+        .hero-content h1 .accent {
+            color: #1a5276;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: #4a6a8a;
+            margin-bottom: 16px;
+        }
+        
+        .hero-content .tagline {
+            font-size: 17px;
+            color: #3a5a7a;
+            max-width: 480px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+        
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+        
+        .badge {
+            background: rgba(26, 82, 118, 0.08);
+            border: 1px solid rgba(26, 82, 118, 0.10);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #1a5276;
+        }
+        
+        .btn-primary {
+            background: #1a5276;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary:hover {
+            background: #0e3a56;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(26, 82, 118, 0.25);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #1a5276;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid rgba(26, 82, 118, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #1a5276;
+            background: rgba(26, 82, 118, 0.04);
+            transform: translateY(-3px);
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== PHOTO ===== */
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .photo-frame {
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a5276, #2e86c1);
+            padding: 5px;
+            box-shadow: 0 30px 80px rgba(26, 82, 118, 0.15);
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #dce6f2;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #dce6f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #1a5276;
+            font-weight: 300;
+        }
+        
+        /* ===== SECTION ===== */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-light {
+            background: #ffffff;
+        }
+        
+        .section-title {
+            font-size: 34px;
+            font-weight: 800;
+            color: #0e2a3f;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #5a7d9a;
+            font-size: 18px;
+            max-width: 560px;
+            margin: 0 auto 48px;
+        }
+        
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-card {
+            background: #f7faff;
+            border: 1px solid rgba(26, 82, 118, 0.06);
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(26, 82, 118, 0.06);
+            border-color: rgba(26, 82, 118, 0.12);
+        }
+        
+        .service-card .icon {
+            font-size: 32px;
+            color: #1a5276;
+            margin-bottom: 12px;
+        }
+        
+        .service-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0e2a3f;
+        }
+        
+        /* ===== STATS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+        
+        .stat-item .number {
+            font-size: 40px;
+            font-weight: 900;
+            color: #1a5276;
+        }
+        
+        .stat-item .label {
+            font-size: 14px;
+            color: #5a7d9a;
+            margin-top: 4px;
+        }
+        
+        /* ===== PROJECTS ===== */
+        .project-card {
+            background: #f7faff;
+            border: 1px solid rgba(26, 82, 118, 0.06);
+            border-radius: 20px;
+            padding: 40px 44px;
+            margin-bottom: 32px;
+            transition: all 0.3s;
+            display: grid;
+            grid-template-columns: 1fr 80px;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 16px 48px rgba(26, 82, 118, 0.06);
+            border-color: rgba(26, 82, 118, 0.12);
+        }
+        
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+        
+        .project-info .project-tag {
+            display: inline-block;
+            background: rgba(26, 82, 118, 0.08);
+            color: #1a5276;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .project-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0e2a3f;
+            margin-bottom: 6px;
+        }
+        
+        .project-info .project-desc {
+            color: #4a6a8a;
+            font-size: 15px;
+            margin-bottom: 12px;
+            max-width: 600px;
+        }
+        
+        .project-info ul {
+            list-style: none;
+            margin-bottom: 14px;
+        }
+        
+        .project-info ul li {
+            padding: 3px 0;
+            color: #3a5a7a;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-info ul li i {
+            color: #1a5276;
+            font-size: 13px;
+            width: 18px;
+        }
+        
+        .project-highlight {
+            background: rgba(26, 82, 118, 0.04);
+            border-left: 3px solid #1a5276;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #0e2a3f;
+        }
+        
+        .project-highlight strong {
+            color: #1a5276;
+        }
+        
+        .project-icon {
+            font-size: 44px;
+            color: #1a5276;
+            opacity: 0.25;
+            text-align: center;
+        }
+        
+        /* ===== TECH STACK ===== */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .tech-item {
+            background: #f7faff;
+            border: 1px solid rgba(26, 82, 118, 0.06);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3a5a7a;
+            transition: all 0.3s;
+        }
+        
+        .tech-item:hover {
+            border-color: rgba(26, 82, 118, 0.2);
+            color: #1a5276;
+            transform: translateY(-3px);
+        }
+        
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        
+        .contact-info h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0e2a3f;
+            margin-bottom: 12px;
+        }
+        
+        .contact-info p {
+            color: #5a7d9a;
+            font-size: 17px;
+            margin-bottom: 28px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 0;
+            color: #3a5a7a;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .contact-item:hover {
+            color: #1a5276;
+        }
+        
+        .contact-item i {
+            width: 24px;
+            color: #1a5276;
+            font-size: 18px;
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+        }
+        
+        .contact-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(26, 82, 118, 0.10);
+            border-radius: 50%;
+            color: #3a5a7a;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .contact-social a:hover {
+            border-color: #1a5276;
+            color: #1a5276;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(26, 82, 118, 0.08);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(26, 82, 118, 0.08);
+            background: #f7faff;
+            color: #0e2a3f;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: border 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #1a5276;
+        }
+        
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(26, 82, 118, 0.06);
+            text-align: center;
+            color: #8aa3bb;
+            font-size: 14px;
+            background: #f7faff;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .hero-content .tagline {
+                margin: 0 auto 28px;
+            }
+            
+            .hero-badges {
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .photo-frame {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .project-card {
+                grid-template-columns: 1fr;
+                padding: 28px 24px;
+                text-align: center;
+            }
+            
+            .project-info ul li {
+                justify-content: center;
+            }
+            
+            .project-highlight {
+                text-align: left;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                padding: 24px;
+                gap: 14px;
+                border-bottom: 1px solid rgba(26, 82, 118, 0.06);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            }
+            
+            .nav-links.open {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 34px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .project-card {
+                padding: 20px 16px;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeUp 0.7s ease forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 { animation-delay: 0.05s; }
+        .delay-2 { animation-delay: 0.12s; }
+        .delay-3 { animation-delay: 0.20s; }
+        .delay-4 { animation-delay: 0.28s; }
+        .delay-5 { animation-delay: 0.36s; }
+    </style>
 </head>
 <body>
-<div class = "goto">
-   <a href = "#home"> <img src = "arrow.jpg"></img> </a>-
-</div>
-<!-- header section-->
-<header id = "home">
-    <nav>
-        <ul>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#assortment">Ассортимент</a></li>
-            <li><a href="#order">Заказать</a></li>
-            <li><a href="#feedback">Отзывы</a></li>
-        </ul>
-    </nav>
-    <div class = "container">
-        <h1>Тюльпаны с доставкой в Бресте</h1>
-        <h2> с 28.02.2025 по 16.03.2025 </h2>
-    </div>
-</header>
-<!-- about section  -->
-<section class ="about" id = "about">
-    <div class ="image-about">
-        <img src = "./photo1.jpg"></img>
-    </div>
-    <div class = "content-about">
-        <h3>Мы торгуем качественным цветком</h3>
-        <h3>Мы заботимся о Вас и о том, чтобы Ваши цветы были доставлены в срок и в соответствии с заказом.</h3>
-        <h3>Цены очень симпатичные. ознакомится с ценой можно  <a    href="https://www.t.me/chart112233bot"> здесь</a></h3>
-    </div>
-</section>
 
-<!-- #assortment section  -->
-<section class = "assortment" id = "assortment">
-    <h2 class="hesding">Aссортимент цветов</h2>
-    <div class="box-items">
-        <img src="./Aafke.jpg">
-        <img src="./Attila_Graffiti.jpg">
-        <img src="./Avant_Garde.jpg">
-        <img src="./Columbus.jpg">
-        <img src="./Delta_Grafiti.jpg">
-        <img src="./First_Price.jpg">
-        <img src="./First_Star.jpg">
-        <img src="./Jumbo_Pink.jpg">
-        <img src="./Kung-Fu.jpg">
-        <img src="./Lambada.jpg">
-        <img src="./Milkshake.jpg">
-        <img src="./Northcap.jpg">
-        <img src="./Pink_Ardour.jpg">
-        <img src="./Rodeo_Drive.jpg">
-        <img src="./Roeska.jpg">
-        <img src="./Saami.jpg">
-        <img src="./Smirnoff.jpg">
-        <img src="./Tom_Pouce.jpg">
-        <img src="./Worlds_Friend.jpg">
-    </div>
-</section>
-<!-- #order section  -->
-<section class="order" id="order">
-    <h2>Заказать даставку</h2>
-    <div class="order-body">
-        <div class ="image-order">
-        <img src = "map.webp"></img>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container nav">
+            <div class="logo">Анна <span>Лапина</span></div>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#stack">Навыки</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
         </div>
-        <div class = "content-order">
-            <h3>Доставка прямо к двери и с улыбкой доставщика</h3>
-            <h3>Регион доставки г. Брест</h3>
-            <h3>Доставка осуществляется с 8:00 утра до 2:00 ночи. </h3>
-            <h3>Оплата заказа наличными курьеру</h3>
-            <h3>Сделать заказ можно <a    href="https://www.t.me/chart112233bot"> здесь</a></h3>
-        </div>
-    </div>
-</section>
+    </header>
 
-<!-- #assortment feedback  -->
-<section class="feedback" id="feedback">
-<h2>Отзывы от наших клиентов</h2>
-    <div class = "feedback-content">
-        <div>
-            <p>"Заказывала 30 красных тюльпанов. Доставка была пунктуальной, цветы свежие, бутоны плотные.
-                Все тюльпаны распустились,  стояли в вазе больше недели!  Спасибо за прекрасное качество и обслуживание!"
-            </p>
-            <h5>Анна С.</h5>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1 class="animate delay-1">Анна <span class="accent">Лапина</span></h1>
+                <p class="subtitle animate delay-2">Разработчик веб-приложений</p>
+                <p class="tagline animate delay-2">
+                    Создаю сайты, системы автоматизации и полезные онлайн-инструменты для бизнеса.
+                </p>
+                <div class="hero-badges animate delay-3">
+                    <span class="badge">5 лет опыта</span>
+                    <span class="badge">30+ проектов</span>
+                    <span class="badge">Для бизнеса и государства</span>
+                </div>
+                <div class="hero-actions animate delay-4">
+                    <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Связаться</a>
+                    <a href="#projects" class="btn-secondary"><i class="fas fa-arrow-right"></i> Мои работы</a>
+                </div>
+            </div>
+            <div class="hero-photo animate delay-2">
+                <div class="photo-frame">
+                    <!-- ВСТАВЬТЕ ВАШЕ ФОТО ВМЕСТО ССЫЛКИ НИЖЕ -->
+                    <img src="https://via.placeholder.com/340x340/1a5276/ffffff?text=ФОТО" alt="Анна Лапина">
+                </div>
+            </div>
         </div>
-        <div>
-            <p>"Я в восторге!  Тюльпаны просто великолепны – яркие,  сочные цвета,  ароматные.
-                Доставили точно в назначенное время,  курьером очень вежливым.  Буду заказывать еще!"
-            </p>
-            <h5>Ольга К.</h5>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section section-light" id="services">
+        <div class="container">
+            <h2 class="section-title animate">Что я <span style="color:#1a5276;">делаю</span></h2>
+            <p class="section-subtitle animate">Помогаю бизнесу работать быстрее и удобнее через цифровые решения</p>
+            <div class="services-grid">
+                <div class="service-card animate delay-1">
+                    <div class="icon"><i class="fas fa-globe"></i></div>
+                    <h3>Сайты и веб-порталы</h3>
+                </div>
+                <div class="service-card animate delay-2">
+                    <div class="icon"><i class="fas fa-building"></i></div>
+                    <h3>Автоматизация бизнеса</h3>
+                </div>
+                <div class="service-card animate delay-3">
+                    <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Отчёты и дашборды</h3>
+                </div>
+                <div class="service-card animate delay-4">
+                    <div class="icon"><i class="fas fa-plug"></i></div>
+                    <h3>Интеграция с сервисами</h3>
+                </div>
+                <div class="service-card animate delay-5">
+                    <div class="icon"><i class="fas fa-robot"></i></div>
+                    <h3>Чат-боты и уведомления</h3>
+                </div>
+            </div>
         </div>
-        <div>
-            <p>"Заказывала букет из 45 разноцветных тюльпанов для мамы на день рождения. Мама была в полном восторге!
-                Цветы свежайшие,  букет составлен со вкусом.  Доставка быстрая и аккуратная. Рекомендую вашу службу доставки!"
-            </p>
-            <h5>Екатерина П.</h5>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="section">
+        <div class="container stats-grid">
+            <div class="stat-item animate delay-1">
+                <div class="number">5+</div>
+                <div class="label">Лет в разработке</div>
+            </div>
+            <div class="stat-item animate delay-2">
+                <div class="number">30%</div>
+                <div class="label">Ускорение работы систем</div>
+            </div>
+            <div class="stat-item animate delay-3">
+                <div class="number">10x</div>
+                <div class="label">Эффективнее храним данные</div>
+            </div>
+            <div class="stat-item animate delay-4">
+                <div class="number">80%</div>
+                <div class="label">Покрытие тестами</div>
+            </div>
         </div>
-        <div>
-            <p>"Отличный сервис! Заказал тюльпаны в последний момент,  и они были доставлены вовремя.
-                Цветы превосходного качества,  красиво упакованы.  Цена соответствует качеству.  Спасибо!"
-            </p>
-            <h5>Дмитрий Р.</h5>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section section-light" id="projects">
+        <div class="container">
+            <h2 class="section-title animate">Мои <span style="color:#1a5276;">проекты</span></h2>
+            <p class="section-subtitle animate">Реальные задачи, которые я решила для клиентов</p>
+
+            <div class="project-card animate">
+                <div class="project-info">
+                    <span class="project-tag">Агропромышленный холдинг</span>
+                    <h3>Система управления производством</h3>
+                    <p class="project-desc">Платформа для контроля показателей, отчётности и дашбордов для руководства и каждой фермы.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Контроль KPI в реальном времени</li>
+                        <li><i class="fas fa-check"></i> Отчёты для всех уровней управления</li>
+                        <li><i class="fas fa-check"></i> Дашборды с ключевыми метриками</li>
+                    </ul>
+                    <div class="project-highlight">
+                        <strong>🚀 Результат:</strong> Таблицы с 50 000+ записей загружаются за 0.3 секунды вместо 5 секунд.
+                    </div>
+                </div>
+                <div class="project-icon"><i class="fas fa-tractor"></i></div>
+            </div>
+
+            <div class="project-card animate delay-1">
+                <div class="project-info">
+                    <span class="project-tag">Сфера услуг</span>
+                    <h3>Система управления заказами</h3>
+                    <p class="project-desc">Автоматизация приёма заказов, расчёта стоимости и уведомлений для клининговой компании.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Управление заказами и клиентами</li>
+                        <li><i class="fas fa-check"></i> Гибкая система скидок</li>
+                        <li><i class="fas fa-check"></i> Автоматические уведомления</li>
+                    </ul>
+                    <div class="project-highlight">
+                        <strong>⚡ Результат:</strong> Время ответа системы сократилось на 40% благодаря асинхронной отправке уведомлений.
+                    </div>
+                </div>
+                <div class="project-icon"><i class="fas fa-broom"></i></div>
+            </div>
+
+            <div class="project-card animate delay-2">
+                <div class="project-info">
+                    <span class="project-tag">Транспорт</span>
+                    <h3>Анализ загрузки городского транспорта</h3>
+                    <p class="project-desc">Приложение для расчёта пассажиропотока на основе данных мобильных операторов и GPS-трекинга автобусов.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Анализ загрузки маршрутов</li>
+                        <li><i class="fas fa-check"></i> Интерактивные карты</li>
+                        <li><i class="fas fa-check"></i> Отчёты для транспортных служб</li>
+                    </ul>
+                    <div class="project-highlight">
+                        <strong>🎯 Результат:</strong> Проект успешно защищён перед заказчиком — Министерством транспорта.
+                    </div>
+                </div>
+                <div class="project-icon"><i class="fas fa-bus"></i></div>
+            </div>
+
+            <div class="project-card animate delay-3">
+                <div class="project-info">
+                    <span class="project-tag">Экология</span>
+                    <h3>Платформа экологического мониторинга</h3>
+                    <p class="project-desc">Сбор и анализ данных с тысяч датчиков для прогнозирования загрязнения атмосферы и контроля экологии.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Обработка данных в реальном времени</li>
+                        <li><i class="fas fa-check"></i> Прогнозные модели</li>
+                        <li><i class="fas fa-check"></i> Отчёты для экологов</li>
+                    </ul>
+                    <div class="project-highlight">
+                        <strong>🌍 Результат:</strong> Система работает на 12 микросервисах, обработка данных ускорена на 30%.
+                    </div>
+                </div>
+                <div class="project-icon"><i class="fas fa-leaf"></i></div>
+            </div>
         </div>
-        <div>
-            <p>"Я очень довольна своей покупкой!  Тюльпаны были свежие и красивые,  бутоны плотные,  а стебли крепкие.
-            Доставили быстро и аккуратно.  Букет идеально подошел к моему событию.  Спасибо за прекрасный сервис!"
-            </p>
-            <h5>Светлана И.</h5>
+    </section>
+
+    <!-- ===== TECH STACK ===== -->
+    <section class="section" id="stack">
+        <div class="container">
+            <h2 class="section-title animate">Технологии, с которыми <span style="color:#1a5276;">работаю</span></h2>
+            <p class="section-subtitle animate">Использую современные инструменты для надёжных и быстрых решений</p>
+            <div class="tech-grid">
+                <span class="tech-item">Java</span>
+                <span class="tech-item">Kotlin</span>
+                <span class="tech-item">Spring Boot</span>
+                <span class="tech-item">PostgreSQL</span>
+                <span class="tech-item">Redis</span>
+                <span class="tech-item">Kafka</span>
+                <span class="tech-item">RabbitMQ</span>
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">Kubernetes</span>
+                <span class="tech-item">GitLab CI/CD</span>
+                <span class="tech-item">JUnit</span>
+                <span class="tech-item">Testcontainers</span>
+            </div>
         </div>
-        <div >
-            <form class="form" action="#" >
-                <label msg="massage">Отзыв</label>
-                <textarea name="msg" id = "msg"  rows="8" required ></textarea>
-                <label for="name">Имя</label>
-                <input type="text" id = "name" required autocomplete="off
-"               placeholder="Введите ваше имя">
-                <br>
-                <br>
-                <input class= submit type="submit"  value="Отправить">
-            </form>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section section-light" id="contact">
+        <div class="container">
+            <h2 class="section-title animate">Свяжитесь <span style="color:#1a5276;">со мной</span></h2>
+            <p class="section-subtitle animate">Буду рада обсудить ваш проект или предложения о работе</p>
+            <div class="contact-grid">
+                <div class="contact-info animate">
+                    <h3>Анна Лапина</h3>
+                    <p>Разработчик веб-приложений и систем автоматизации</p>
+                    <div class="contact-item"><i class="fas fa-envelope"></i> alapina840@gmail.com</div>
+                    <div class="contact-item"><i class="fas fa-phone"></i> +375 29 821 19 66</div>
+                    <div class="contact-item"><i class="fas fa-paper-plane"></i> @hanalapina (Telegram)</div>
+                    <div class="contact-social">
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form animate delay-1">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Ваш email" required>
+                    <input type="text" placeholder="Тема">
+                    <textarea placeholder="Расскажите о вашем проекте..." required></textarea>
+                    <button type="submit" class="btn-primary" style="border:none; align-self:flex-start;">
+                        <i class="fas fa-paper-plane"></i> Отправить
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
-<!-- #assortment feedback  -->
-<section class="footer" id="footer">
-    <p> Бот — это небольшое приложение для выполнения различных задач. Например:  общаться с пользователями
-        продавать товары,отправлять текстовые сообщения т.д. Любое приложение может быть вредоностным и содержать
-        вирусы и банеры. Мы гарантируем качество нашего приложения.
-    </p>
-</section>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            &copy; 2026 Анна Лапина. Разработчик веб-приложений.
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // Header shadow on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+    </script>
+
 </body>
 </html>
