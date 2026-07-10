@@ -992,5 +992,66 @@
         });
 
         // ===== SOCIAL LINKS: COPY + TOAST =====
-        const toast = document.getElementById('toast');
-        let toastTimer = null
+const toast = document.getElementById('toast');
+let toastTimer = null;
+
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
+
+document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const url = this.dataset.url;
+        
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('✅ Ссылка скопирована: ' + url);
+            }).catch(() => {
+                // fallback
+                copyFallback(url);
+            });
+        } else {
+            copyFallback(url);
+        }
+    });
+});
+
+function copyFallback(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        showToast('✅ Ссылка скопирована: ' + text);
+    } catch (err) {
+        showToast('❌ Не удалось скопировать ссылку');
+    }
+    document.body.removeChild(textarea);
+}
+
+// Также предотвращаем переход по ссылкам в контактных данных (email, телефон)
+document.querySelectorAll('.contact-item').forEach(item => {
+    const link = item.querySelector('a');
+    if (link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    showToast('✅ Ссылка скопирована: ' + url);
+                });
+            }
+        });
+    }
+});
