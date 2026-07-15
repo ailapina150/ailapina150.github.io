@@ -959,11 +959,11 @@
                         <a class="social-link" data-url="mailto:alapina840@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <form class="contact-form animate delay-1" id="contactForm">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="email" placeholder="Ваш email" required>
-                    <input type="text" placeholder="Тема">
-                    <textarea placeholder="Расскажите о вашем проекте..." required></textarea>
+                <form class="contact-form animate delay-1" action="https://formspree.io/f/xkodondq" method="POST" id="contactForm">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="email" name="email" placeholder="Ваш email" required>
+                    <input type="text" name="subject" placeholder="Тема">
+                    <textarea name="message" placeholder="Расскажите о вашем проекте..." required></textarea>
                     <button type="submit" class="btn-primary" style="border:none; align-self:flex-start;">
                         <i class="fas fa-paper-plane"></i> Отправить
                     </button>
